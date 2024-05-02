@@ -60,13 +60,6 @@ trap(struct trapframe *tf)
     if (myproc() != 0 && myproc()->scheduler != 0 && myproc()->state == RUNNING) {
       ((void (*)(void))myproc()->scheduler)();
     }
-    // if(myproc() && myproc()->state == RUNNING){
-    //     void (*scheduler)(void) = (void (*)(void))myproc()->scheduler;
-    //     if(scheduler != 0) {
-    //         scheduler();
-    //     }
-    // }
-    // }
     break;
   case T_IRQ0 + IRQ_IDE:
     ideintr();
